@@ -12,12 +12,16 @@ let contenedor = [document.getElementsByClassName("li1"),
                   document.getElementsByClassName("li5"),
                   document.getElementsByClassName("li6")];
 
-for( let id in contenedor)
-{
-  // console.log(id) 
-  // console.log(contenedor[id])
-  contenedor[id][0].addEventListener("mouseenter", mostrarText);
-}
+// for( let id in contenedor)
+// {
+//   // console.log(id) 
+//   // console.log(contenedor[id])
+//   contenedor[id][0].addEventListener("mouseenter", mostrarText);
+//   // 
+// }
+// esta linea sustituye al anterior for
+console.log(contenedor.forEach(n => n[0].addEventListener("mouseenter", mostrarText)))
+
 for( let id in contenedor)
    contenedor[id][0].addEventListener("mouseleave", ocultarText);   
   
@@ -25,7 +29,7 @@ for( let id in contenedor)
 function mostrarText(e){
   // console.log(e);
   let indice = transformarEleANUm(e.srcElement.classList[0]);
-  console.log(textAlt[indice][0]);
+  // console.log(textAlt[indice][0]);
   if (indice>=0){
     textAlt[indice][0].classList.add("is-active");
   }
